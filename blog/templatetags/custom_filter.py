@@ -1,22 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
--------------------------------------------------
-   File Name：     custom_filter.py  
-   Description :  
-   Author :       JHao
-   date：          2017/4/14
--------------------------------------------------
-   Change Activity:
-                   2017/4/14: 
--------------------------------------------------
-"""
+
 __author__ = 'JHao'
 
 import re
+
 import markdown
 from django import template
-from django.template.defaultfilters import stringfilter
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
 
 register = template.Library()

@@ -1,19 +1,12 @@
 # -*- coding: utf-8 -*-
-"""
--------------------------------------------------
-   File Name：     urls.py  
-   Description :  
-   Author :       JHao
-   date：          2017/4/13
--------------------------------------------------
-   Change Activity:
-                   2017/4/13: 
--------------------------------------------------
-"""
+
 __author__ = 'JHao'
 
-from blog import views
 from django.conf.urls import url
+
+from blog import views
+
+app_name = 'blog'
 
 urlpatterns = [
     url(r'^index/$', views.index, name='index'),

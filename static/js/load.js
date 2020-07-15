@@ -1,82 +1,82 @@
 /*******************************************
- * 
- * Plug-in:ÓÑºÃµÄÒ³Ãæ¼ÓÔØÐ§¹û
+ *
+ * Plug-in:ï¿½ÑºÃµï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
  * Author:sqinyang (sqinyang@sina.com)
  * Time:2015/04/20
- * Explanation:Ëæ×ÅHTML5µÄÁ÷ÐÐ£¬Ò³ÃæÐ§¹ûÔ½À´Ô½ìÅ£¬Í¬Ê±Ò²ÐèÒª¼ÓÔØ´óÁ¿µÄ²å¼þ¼°ËØ²Ä£¬Íò¶ñµÄÍøËÙ£¬ÌØ±ð¶ÔÓÚ¹ÒÔÚ¹úÍâ·þÎñÆ÷µÄÍøÕ¾£¬Ò»´ò¿ªÒ»¶ÑËØ²Ä»º»º¼ÓÔØ£¬Î»ÖÃ´íÂÒ²»Æë£¬¹Ê±àÐ´´Ë·½·¨£¬·½±ã´ó¼ÒÊ¹ÓÃ
+ * Explanation:ï¿½ï¿½ï¿½ï¿½HTML5ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½Ò³ï¿½ï¿½Ð§ï¿½ï¿½Ô½ï¿½ï¿½Ô½ï¿½Å£ï¿½Í¬Ê±Ò²ï¿½ï¿½Òªï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ø²Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù£ï¿½ï¿½Ø±ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½Ò»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ø²Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½Î»ï¿½Ã´ï¿½ï¿½Ò²ï¿½ï¿½ë£¬ï¿½Ê±ï¿½Ð´ï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
  *
-*********************************************/
+ *********************************************/
 
 jQuery.MyCommon = {
     PageLoading: function (options) {
         var defaults = {
             opacity: 1,
-            //loadingÒ³ÃæÍ¸Ã÷¶È
+            //loadingÒ³ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ï¿½
             backgroundColor: "#fff",
-            //loadingÒ³Ãæ±³¾°É«
+            //loadingÒ³ï¿½æ±³ï¿½ï¿½É«
             borderColor: "#bbb",
-            //ÌáÊ¾±ß¿òÑÕÉ«
+            //ï¿½ï¿½Ê¾ï¿½ß¿ï¿½ï¿½ï¿½É«
             borderWidth: 1,
-            //ÌáÊ¾±ß¿ò¿í¶È
+            //ï¿½ï¿½Ê¾ï¿½ß¿ï¿½ï¿½ï¿½
             borderStyle: "solid",
-            //ÌáÊ¾±ß¿òÑùÊ½
-            loadingTips: "ÕýÔÚ¼ÓÔØ, ÇëÉÔºó...",
-            //ÌáÊ¾ÎÄ±¾
+            //ï¿½ï¿½Ê¾ï¿½ß¿ï¿½ï¿½ï¿½Ê½
+            loadingTips: "ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ôºï¿½...",
+            //ï¿½ï¿½Ê¾ï¿½Ä±ï¿½
             TipsColor: "#666",
-            //ÌáÊ¾ÑÕÉ«
+            //ï¿½ï¿½Ê¾ï¿½ï¿½É«
             delayTime: 1000,
-            //Ò³Ãæ¼ÓÔØÍê³Éºó£¬¼ÓÔØÒ³Ãæ½¥³öËÙ¶È
+            //Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éºó£¬¼ï¿½ï¿½ï¿½Ò³ï¿½æ½¥ï¿½ï¿½ï¿½Ù¶ï¿½
             zindex: 999,
-            //loadingÒ³Ãæ²ã´Î
+            //loadingÒ³ï¿½ï¿½ï¿½ï¿½
             sleep: 0
-            //ÉèÖÃ¹ÒÆð,µÈÓÚ0Ê±ÔòÎÞÐè¹ÒÆð
+            //ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½0Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         }
         var options = $.extend(defaults, options);
 
-        //»ñÈ¡Ò³Ãæ¿í¸ß
+        //ï¿½ï¿½È¡Ò³ï¿½ï¿½ï¿½ï¿½
         var _PageHeight = document.documentElement.clientHeight,
-        _PageWidth = document.documentElement.clientWidth;
+            _PageWidth = document.documentElement.clientWidth;
 
-        //ÔÚÒ³ÃæÎ´¼ÓÔØÍê±ÏÖ®Ç°ÏÔÊ¾µÄloading Html×Ô¶¨ÒåÄÚÈÝ
+        //ï¿½ï¿½Ò³ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½Ê¾ï¿½ï¿½loading Htmlï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         var _LoadingHtml = '<div id="loadingPage" style="position:fixed;left:0;top:0;_position: absolute;width:100%;height:' + _PageHeight + 'px;background:' + options.backgroundColor + ';opacity:' + options.opacity + ';filter:alpha(opacity=' + options.opacity * 100 + ');z-index:' + options.zindex + ';"><div id="loadingTips" style="position: absolute; cursor1: wait; width: auto;border-color:' + options.borderColor + ';border-style:' + options.borderStyle + ';border-width:' + options.borderWidth + 'px; height:80px; line-height:80px; padding-left:80px; padding-right: 5px;border-radius:10px;  background: ' + options.backgroundColor + ' url(http://www.jq22.com/demo/jquery-loading-150421215832/images/loading.gif) no-repeat 5px center; color:' + options.TipsColor + ';font-size:20px;">' + options.loadingTips + '</div></div>';
 
-        //³ÊÏÖloadingÐ§¹û
+        //ï¿½ï¿½ï¿½ï¿½loadingÐ§ï¿½ï¿½
         $("body").append(_LoadingHtml);
 
-        //»ñÈ¡loadingÌáÊ¾¿ò¿í¸ß
+        //ï¿½ï¿½È¡loadingï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
         var _LoadingTipsH = document.getElementById("loadingTips").clientHeight,
-        _LoadingTipsW = document.getElementById("loadingTips").clientWidth;
+            _LoadingTipsW = document.getElementById("loadingTips").clientWidth;
 
-        //¼ÆËã¾àÀë£¬ÈÃloadingÌáÊ¾¿ò±£³ÖÔÚÆÁÄ»ÉÏÏÂ×óÓÒ¾ÓÖÐ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½loadingï¿½ï¿½Ê¾ï¿½ò±£³ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¾ï¿½ï¿½ï¿½
         var _LoadingTop = _PageHeight > _LoadingTipsH ? (_PageHeight - _LoadingTipsH) / 2 : 0,
-        _LoadingLeft = _PageWidth > _LoadingTipsW ? (_PageWidth - _LoadingTipsW) / 2 : 0;
+            _LoadingLeft = _PageWidth > _LoadingTipsW ? (_PageWidth - _LoadingTipsW) / 2 : 0;
 
         $("#loadingTips").css({
             "left": _LoadingLeft + "px",
             "top": _LoadingTop + "px"
         });
 
-        //¼àÌýÒ³Ãæ¼ÓÔØ×´Ì¬
+        //ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
         document.onreadystatechange = PageLoaded;
 
-        //µ±Ò³Ãæ¼ÓÔØÍê³ÉºóÖ´ÐÐ
+        //ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éºï¿½Ö´ï¿½ï¿½
         function PageLoaded() {
             if (document.readyState == "complete") {
                 var loadingMask = $('#loadingPage');
 
                 setTimeout(function () {
-                    loadingMask.animate({
-                        "opacity": 0
+                        loadingMask.animate({
+                                "opacity": 0
+                            },
+                            options.delayTime,
+                            function () {
+                                $(this).hide();
+
+                            });
+
                     },
-                    options.delayTime,
-                    function () {
-                        $(this).hide();
-
-                    });
-
-                },
-                options.sleep);
+                    options.sleep);
 
             }
         }

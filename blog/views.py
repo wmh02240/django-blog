@@ -2,10 +2,11 @@
 # Create your views here.
 
 import json
+
 from django.http import JsonResponse
-from django.shortcuts import render, get_object_or_404, reverse
-from django.conf import settings
+from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
+
 from blog.models import Article, Category, Comment
 
 
@@ -16,8 +17,8 @@ def index(request):
     :return:
     """
     article_list = Article.objects.all().order_by('-date_time')[0:5]
-    return render(request, 'blog/index.html', {"article_list": article_list,
-                                               "source_id": "index"})
+    # print("123", article_list.values())
+    return render(request, 'blog/index.html', {"article_list": article_list, "source_id": "index"})
 
 
 def articles(request, pk):
@@ -36,9 +37,7 @@ def articles(request, pk):
         # pk为0时表示全部
         article_list = Article.objects.all()  # 获取全部文章
         category = u''
-    return render(request, 'blog/articles.html', {"article_list": article_list,
-                                                  "category": category,
-                                                  })
+    return render(request, 'blog/articles.html', {"article_list": article_list, "category": category, })
 
 
 def about(request):
@@ -90,8 +89,7 @@ def detail(request, pk):
     """
     article = get_object_or_404(Article, pk=pk)
     article.viewed()
-    return render(request, 'blog/detail.html', {"article": article,
-                                                "source_id": article.id})
+    return render(request, 'blog/detail.html', {"article": article, "source_id": article.id})
 
 
 def search(request):
@@ -102,8 +100,7 @@ def search(request):
     """
     key = request.GET['key']
     article_list = Article.objects.filter(title__icontains=key)
-    return render(request, 'blog/search.html',
-                  {"article_list": article_list, "key": key})
+    return render(request, 'blog/search.html', {"article_list": article_list, "key": key})
 
 
 def tag(request, name):
@@ -114,5 +111,4 @@ def tag(request, name):
     :return:
     """
     article_list = Article.objects.filter(tag__tag_name=name)
-    return render(request, 'blog/tag.html', {"article_list": article_list,
-                                             "tag": name})
+    return render(request, 'blog/tag.html', {"article_list": article_list, "tag": name})

@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
-
-
 from blog.models import Tag, Article, Category
+
+
+# Register your models here.
 
 
 @admin.register(Article)

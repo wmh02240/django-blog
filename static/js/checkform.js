@@ -1,25 +1,18 @@
- function checkform()
-{
-     if($("#u_name").val()=="" || $("#u_name").val().length<2)
-          {
-              layer.msg('ÓÃ»§Ãû²»ÄÜÎª¿Õ»òÕßêÇ³ÆÌ«¶ÌÁËà¸', {icon: 2}); 
-               return false;
-          }
+function checkform() {
+    if ($("#u_name").val() == "" || $("#u_name").val().length < 2) {
+        layer.msg('ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ»ï¿½ï¿½ï¿½ï¿½Ç³ï¿½Ì«ï¿½ï¿½ï¿½ï¿½ï¿½', {icon: 2});
+        return false;
+    }
 
-if($("#txaArticle").val()=="" || $("#txaArticle").val().length<2)
-          {
-              layer.msg('Ç×É¶¶¼Ã»Ð´à¸£¬»òÕßÄÚÈÝÌ«ÉÙÀ²£¡', {icon: 2}); 
-               return false;
-          }
-		  
-		if($("#txaArticle").val()!="" && $("#u_name").val()!="")
-          {
-              layer.alert('¹§Ï²Ìá½»³É¹¦£¡´ý¹ÜÀíÔ±ÉóºËÍ¨¹ýºóÏÔÊ¾!', {icon: 1}); 
-               return true;
-          }
-		  
-     else
-     {
-          return true;
-     }
+    if ($("#txaArticle").val() == "" || $("#txaArticle").val().length < 2) {
+        layer.msg('ï¿½ï¿½É¶ï¿½ï¿½Ã»Ð´à¸£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', {icon: 2});
+        return false;
+    }
+
+    if ($("#txaArticle").val() != "" && $("#u_name").val() != "") {
+        layer.alert('ï¿½ï¿½Ï²ï¿½á½»ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾!', {icon: 1});
+        return true;
+    } else {
+        return true;
+    }
 } 

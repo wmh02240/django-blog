@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+print(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -55,11 +55,11 @@ ROOT_URLCONF = 'django_blog.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',  # django模板引擎   jinja2
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]  # 配置模板目录路径
         ,
-        'APP_DIRS': True,
-        'OPTIONS': {
+        'APP_DIRS': True,  # True 会自动寻找app下面的模板目录，同时 DIRS 可以为空
+        'OPTIONS': {  # 针对后端的一些配置
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -73,7 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_blog.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -82,12 +81,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_blog',
         'USER': 'root',
-        'PASSWORD': '5849312',
+        'PASSWORD': 'qwe123',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -107,7 +105,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -121,12 +118,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+# 这里django默认为我们配好了static这个url,我们并没有配置这个路径
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
+STATIC_URL = '/static/'  # 别名  用STATIC_URL别名代替实际静态文件路径
 
-STATIC_URL = '/static/'
-
+# 实际的静态文件名
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".

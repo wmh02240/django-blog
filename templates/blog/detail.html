@@ -12,17 +12,22 @@
 {% endblock %}
 
 {% block css %}
+    {#注意这里的static是别名#}
     <link rel="stylesheet" href="/static/css/markdown.css">
     <link rel="stylesheet" href="/static/prism/prism.css">
 
     <script src="/static/prism/prism.js" charset="utf-8"></script>
 
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {inlineMath: [['$', '$']]},
             messageStyle: "none"
         });
+
+
+
     </script>
 
 {% endblock %}
@@ -76,7 +81,7 @@
                             "bdSize": "32"
                         }, "share": {}
                     };
-                    with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+                    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
                 </div>
             </div>
             <!--END 分享-->
@@ -95,7 +100,8 @@
                            title="归类：{{ article.category }}">{{ article.category }}</a></li>
                     {% for tag in article.tag.all %}
                         <li><a href="{% url "blog:tag" name=tag.tag_name %}"
-                               title="标签：{{ tag.tag_name }} ">{{ tag.tag_name }}</a>&nbsp;</li>
+                               title="标签：{{ tag.tag_name }} ">{{ tag.tag_name }}</a>&nbsp;
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
@@ -145,6 +151,7 @@
                 $("#AnchorContent").toggle();
             });
         }
+
         GenerateContentList();
     </script>
 

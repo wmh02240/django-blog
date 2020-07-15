@@ -1,66 +1,63 @@
 /*
-	×÷Õß£ºÒ¶»ªÎ°£¬ÓÊÏä£ºyhw2710@126.com,QQ:517025143
+	ï¿½ï¿½ï¿½ß£ï¿½Ò¶ï¿½ï¿½Î°ï¿½ï¿½ï¿½ï¿½ï¿½ä£ºyhw2710@126.com,QQ:517025143
 */
-$(function(){
-			$(".news_content p:odd").addClass("p03");  //¸ôÐÐ»»É«´¦£¬¶îÊýÐÐÔö¼ÓÑùÊ½P03
-			
-			//Êó±ê¾­¹ýÑùÊ½±ä»¯´¦
-			$(".news_content p").hover( 
-                function () { 
-                    $(this).addClass("p02");   //Êó±ê¾­¹ýÊ±Ôö¼ÓÑùÊ½P02
-                }, 
-                function () { 
-                    $(this).removeClass("p02"); //Êó±êÀë¿ªÊ±ÒÆ³ýÑùÊ½P02
-                }
-            )
-			
-			//³¬Á´½ÓÎÞÐéÏß¿ò´¦
-			$("a").focus( 
-                function () { 
-                    $(this).blur(); //µÃµ½½¹µãÓëÊ§È¥½¹µãÐ§¹ûÒ»ÖÂ
-                }
-             )
-        })
+$(function () {
+    $(".news_content p:odd").addClass("p03");  //ï¿½ï¿½ï¿½Ð»ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½P03
 
-//±êÌâÌáÊ¾Ð§¹û´¦
+    //ï¿½ï¿½ê¾­ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ä»¯ï¿½ï¿½
+    $(".news_content p").hover(
+        function () {
+            $(this).addClass("p02");   //ï¿½ï¿½ê¾­ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½P02
+        },
+        function () {
+            $(this).removeClass("p02"); //ï¿½ï¿½ï¿½ï¿½ë¿ªÊ±ï¿½Æ³ï¿½ï¿½ï¿½Ê½P02
+        }
+    )
+
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½
+    $("a").focus(
+        function () {
+            $(this).blur(); //ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§È¥ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½Ò»ï¿½ï¿½
+        }
+    )
+})
+
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Ð§ï¿½ï¿½ï¿½ï¿½
 var sweetTitles = {
-	x : 10,	
-	y : 20,	
-	tipElements : "a",
-	init : function() {
-		$(this.tipElements).mouseover(function(e){
-			this.myTitle = this.title;
-			this.myHref = this.href;
-			this.myHref = (this.myHref.length > 200 ? this.myHref.toString().substring(0,200)+"..." : this.myHref);
-			this.title = "";
-			var tooltip = "";
-			if(this.myTitle == "")
-			{
-			    tooltip = "";
-			}
-			else
-			{
-			    tooltip = "<div id='tooltip'><p>"+this.myTitle+"</p></div>";
-			}
-			$('body').append(tooltip);
-			$('#tooltip')
-				.css({
-					"opacity":"1",
-					"top":(e.pageY+20)+"px",
-				"left":(e.pageX+10)+"px"
-				}).show('fast');	
-		}).mouseout(function(){
-			this.title = this.myTitle;
-			$('#tooltip').remove();
-		}).mousemove(function(e){
-			$('#tooltip')
-			.css({
-					"top":(e.pageY+20)+"px",
-				"left":(e.pageX+10)+"px"
-			});
-		});
-	}
+    x: 10,
+    y: 20,
+    tipElements: "a",
+    init: function () {
+        $(this.tipElements).mouseover(function (e) {
+            this.myTitle = this.title;
+            this.myHref = this.href;
+            this.myHref = (this.myHref.length > 200 ? this.myHref.toString().substring(0, 200) + "..." : this.myHref);
+            this.title = "";
+            var tooltip = "";
+            if (this.myTitle == "") {
+                tooltip = "";
+            } else {
+                tooltip = "<div id='tooltip'><p>" + this.myTitle + "</p></div>";
+            }
+            $('body').append(tooltip);
+            $('#tooltip')
+                .css({
+                    "opacity": "1",
+                    "top": (e.pageY + 20) + "px",
+                    "left": (e.pageX + 10) + "px"
+                }).show('fast');
+        }).mouseout(function () {
+            this.title = this.myTitle;
+            $('#tooltip').remove();
+        }).mousemove(function (e) {
+            $('#tooltip')
+                .css({
+                    "top": (e.pageY + 20) + "px",
+                    "left": (e.pageX + 10) + "px"
+                });
+        });
+    }
 };
-$(function(){
-	sweetTitles.init();
+$(function () {
+    sweetTitles.init();
 });
